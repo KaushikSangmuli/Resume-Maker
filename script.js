@@ -426,32 +426,44 @@ document.getElementById('downloadPdf').addEventListener('click', function () {
     var clone = element.cloneNode(true);
     clone.style.width = '200mm'; // Set the width to A2 size in mm
     clone.style.margin = 'auto';
+    document.body.appendChild(clone);
+
 
      // Determine the height of the cloned element
      var height = clone.offsetHeight;
      var heightInMm = height * 0.264583; // Convert px to mm
 
+    setTimeout(() => {
+        
      // Calculate the content height in mm
      var contentHeightMm = clone.scrollHeight * 0.264583;
 
      // Determine the format based on content height
-     var format = contentHeightMm > 297 ? 'a3' : 'a4';
+     if (contentHeightMm > 297 ){
+        formatted = "a3"
+        clone.style.width= "280mm"
+     } else{
+        formatted= "a4"
+     }
+     
+     debugger
+     console.log(contentHeightMm)
 
     var opt = {
         margin: [4, 4, 4, 4], // [top, left, bottom, right] margins in mm
         filename: 'content.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'mm', format: format, orientation: 'portrait' }
+        jsPDF: { unit: 'mm', format: formatted, orientation: 'portrait' }
     };
 
-    document.body.appendChild(clone);
     // New Promise-based usage:
     html2pdf().set(opt).from(clone).save().then(
         function () {
             document.body.removeChild(clone);
         }
     )
+}, 100);
 
 });
 
