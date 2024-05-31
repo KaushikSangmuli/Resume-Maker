@@ -424,7 +424,7 @@ document.getElementById('downloadPdf').addEventListener('click', function () {
     var element = document.querySelector('.resumePdfPage');
 
     var clone = element.cloneNode(true);
-    clone.style.width = '280mm'; // Set the width to A2 size in mm
+    clone.style.width = '200mm'; // Set the width to A2 size in mm
     clone.style.margin = 'auto';
 
     var opt = {
