@@ -14,12 +14,15 @@
 </head>
 
 <body>
-
+    <div class="submissionDone hidden">Details Added Successfully</div>
+    <div class="deleteDone hidden"> Details Removed Successfully</div>
     <header>
-        <h1 id="heading" style="text-align: center;"> Build the Market Fit Resume in Minutes.</h1>
+        <h1 id="heading" style="text-align: center;"> Resume Maker .</h1>
     </header>
     <main>
+        <div class="alertMsg"></div>
         <div class="mainPage">
+
             <div class="resumeInputPage">
                 <span class="topicHeading"> Personal Details</span>
                 <div class="personal-details">
@@ -51,7 +54,9 @@
                     <p class="additionalInfo ">Write 2-4 short & energetic sentences to interest the reader! Mention
                         your role, experience &
                         most importantly - your biggest achievements, best qualities and skills.</p>
+
                     <textarea name="he" id="summaryInput" placeholder="textarea test"> </textarea>
+                    
                 </div>
                 <div class="companyList">
                     <span class="topicHeading"> Employement History</span>
@@ -59,6 +64,7 @@
                         your achievement. if
                         possible - use no./facts (Achived X, measured by Y. by doing Z)</p>
                     <span class="addNewSection"> + Add Employement here</span>
+                    
 
                 </div>
                 <div class="educationList">
@@ -85,7 +91,6 @@
             </div>
             <div class="secondDiv">
                 <div class="customised">
-                   
                     <div>
                         <span> Font Color</span>
                         <input type="color" id="fontColorSet">
@@ -93,7 +98,6 @@
                     <div class="downloadDiv">
                         <button id="downloadPdf"> download</button>
                     </div>
-
                 </div>
                 <div class="resumePdfPage">
                     <div class="personal-details-pdf">
@@ -105,20 +109,23 @@
                             <span id="pdfPhoneNumber"> Mobile Number</span>
                             <span id="pdfEmail"> Email</span>
                         </div>
+                       
                     </div>
                     <hr>
                     <div class="summarypdf">
                         
                     </div>
                     <hr>
-                    <div class="employeementPdf">
-
+                    <div class="employeementPdf">   
+                        
                     </div>
+                    <hr>
                     <div class="eduactionPdf">
-
+                        
                     </div>
                 </div>
             </div>
+           
         </div>
     </main>
 

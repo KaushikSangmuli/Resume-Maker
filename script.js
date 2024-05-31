@@ -103,6 +103,23 @@ const jobDesignations = [
     "Safety Officer"
 ];
 
+
+const successful = document.querySelector(".submissionDone")
+const completed = () => {
+  successful.classList.remove("hidden")
+  setTimeout(() => {
+    successful.classList.add("hidden")
+  }, 600);
+}
+
+const deleted = document.querySelector(".deleteDone")
+const removing = ()=>{
+    deleted.classList.remove("hidden")
+    console.log("delete Done")
+    setTimeout(() => {
+    deleted.classList.add("hidden")        
+    }, 600);
+}
 //personal details
 //input
 const designation = document.querySelector("#designationInput")
@@ -117,6 +134,7 @@ const showDesignation = document.querySelector("#pdfDesignation")
 const showNumber = document.querySelector("#pdfPhoneNumber")
 const showEmail = document.querySelector("#pdfEmail")
 
+
 const submitPersonalDetails = () => {
     showDesignation.innerText = designation.value ? designation.value : "Designation"
     showName.innerText = username.value ? username.value : "Name"
@@ -126,7 +144,7 @@ const submitPersonalDetails = () => {
 
 submitPersonal.addEventListener("click", () => {
     submitPersonalDetails()
-    console.log("hello")
+    completed()
 })
 
 
@@ -177,8 +195,10 @@ addCompany.addEventListener("click", () => {
         <textarea class="jobDescription${count}"></textarea>
         </div>
         <button class="submit${count} submit"> submit </button>
-    <button class="cross${count} cross "> X </button>
-</div>`
+    <button class="cross${count} cross "> x </button>
+</div>
+
+`
     companies.appendChild(company)
 
     const jobTitle = document.querySelector(`.jobTitle${count}`)
@@ -191,14 +211,14 @@ addCompany.addEventListener("click", () => {
 
     const submitJob = document.querySelector(`.submit${count}`)
 
-    let isappended= true;
+    let isappended = true;
     const employement = document.createElement("div")
     submitJob.addEventListener("click", () => {
         console.log(jobTitle.value)
+        completed()
         employement.innerHTML = ` <div class="employeeManage">
         <h3 id="employerpdf"> ${companyName.value}</h3>
         <span id="cityPdf"> ${companyCity.value}</span>
-    
     </div>
     <div class="employeeManage">
         <h5 id="designationPdf">${jobTitle.value}</h5>
@@ -207,18 +227,21 @@ addCompany.addEventListener("click", () => {
     <div id="descriptionPdf">
         ${jobDiscript.value}
     </div>
-    ` 
-    if (isappended == true){
-        showEmployeement.appendChild(employement)
-        isappended = false
-    } 
+    `
+
+        if (isappended == true) {
+            showEmployeement.appendChild(employement)
+            isappended = false
+        }
     })
     const cross = document.querySelector(`.cross${count}`)
     cross.addEventListener("click", () => {
         company.style.display = "none"
         console.log("hello")
         employement.style.display = "none"
+        removing()
     })
+
 })
 
 const addEducation = document.querySelector(".newEducation")
@@ -258,7 +281,10 @@ addEducation.addEventListener("click", () => {
 
 
     <button class="cross${count} cross "> X </button>
-</div>`
+</div>
+
+
+`
     educations.appendChild(education)
     const submitClass = document.querySelector(`.submit${count}`)
     const university = document.querySelector(`.university${count}`)
@@ -268,10 +294,12 @@ addEducation.addEventListener("click", () => {
     const collegeCity = document.querySelector(`.collegeCity${count}`)
     const educationDescr = document.querySelector(`.learnDescription${count}`)
 
-    const educationAdded= document.createElement("div")
+    const educationAdded = document.createElement("div")
 
-    submitClass.addEventListener("click",()=>{
-    educationAdded.innerHTML = `
+    submitClass.addEventListener("click", () => {
+        completed()
+        console.log("submission hit")
+        educationAdded.innerHTML = `
     <div class="employeeManage">
         <h3 id="employerpdf"> ${degree.value}</h3>
         <span id="cityPdf"> ${collegeCity.value}</span>
@@ -285,14 +313,16 @@ addEducation.addEventListener("click", () => {
         ${educationDescr.value}
     </div>
     `
-    console.log("hello")
-    showEduction.appendChild(educationAdded)
+
+        console.log("hello")
+        showEduction.appendChild(educationAdded)
     })
     const cross = document.querySelector(`.cross${count}`)
     cross.addEventListener("click", () => {
         education.style.display = "none"
         console.log("hello")
-        educationAdded.style.display= "none"
+        educationAdded.style.display = "none"
+        removing()
     })
 })
 
@@ -390,33 +420,33 @@ designation.addEventListener("input", (e) => {
 
 var element = document.querySelector('.resumePdfPage');
 
-document.getElementById('downloadPdf').addEventListener('click', function() {
-            var element = document.querySelector('.resumePdfPage');
+document.getElementById('downloadPdf').addEventListener('click', function () {
+    var element = document.querySelector('.resumePdfPage');
 
-            var clone = element.cloneNode(true);
-            clone.style.width = '280mm'; // Set the width to A2 size in mm
-            clone.style.margin = 'auto'; 
+    var clone = element.cloneNode(true);
+    clone.style.width = '280mm'; // Set the width to A2 size in mm
+    clone.style.margin = 'auto';
 
-            var opt = {
-                margin:       [4, 4, 4, 4], // [top, left, bottom, right] margins in mm
-                filename:     'content.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true },
-                jsPDF:        { unit: 'mm', format: 'a3', orientation: 'portrait'}
-            };
+    var opt = {
+        margin: [4, 4, 4, 4], // [top, left, bottom, right] margins in mm
+        filename: 'content.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a3', orientation: 'portrait' }
+    };
 
-            document.body.appendChild(clone);
-            // New Promise-based usage:
-            html2pdf().set(opt).from(clone).save().then(
-                function(){
-                    document.body.removeChild(clone);
-                }
-            )
-        
+    document.body.appendChild(clone);
+    // New Promise-based usage:
+    html2pdf().set(opt).from(clone).save().then(
+        function () {
+            document.body.removeChild(clone);
+        }
+    )
+
 });
 
 
 const fontColor = document.querySelector("#fontColorSet")
-fontColor.addEventListener("input",(e)=>{
+fontColor.addEventListener("input", (e) => {
     element.style.color = e.target.value
 })
