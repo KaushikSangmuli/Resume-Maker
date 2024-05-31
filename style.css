@@ -4,7 +4,9 @@
     box-sizing: border-box;
     font-family: "poppins";
 }
-
+.hidden{
+    display: none;
+}
 
 
 .mainPage{
@@ -37,9 +39,7 @@
     font-size: 1.5rem;
     font-weight: 600;
 }
-.hidden{
-    display: none;
-}
+
 .companyList{
     position: relative;
 }
