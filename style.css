@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins";
+}
+
+.mainPage{
+    display: flex;
+    justify-content: space-evenly;    
+    border: 2px solid yellow;
+}
+
+/* Personal Details */
+
+/* Input of Personal Details */
+
+.resumeInputPage{
+    border: 2px solid  black;
+    width: 48%;
+    padding-inline: 8px;
+}
+
+.personal-details{
+    margin-top: 12px;
+    width: 96%;
+    margin-inline: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.inputManager{
+    min-width: 230px;
+    width: 48%;
+    flex-grow: 1;
+    display:  inline-flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.inputManager label{
+    font-weight: 500;
+    margin-left: 2px;
+}
+
+.inputManager input{
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid grey;
+}
+.submit-personal{
+    margin-inline: 40%;
+    
+}
+#submit-personal{
+    font-size: 1.1rem;
+    padding: 2px 8px;
+    margin-bottom: 32px;
+}
+
+.submit{
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 2px 8px;
+    margin-inline: 40%;
+    border-radius: 6px;
+    border: 0.5px solid gray;
+}
+.submit:hover{
+    cursor: pointer;
+}
+.professional-summary{
+    width: 95%;
+    margin-inline: auto;
+}
+.professional-summary p{
+    font-size: 0.8rem;
+    color: gray;
+    margin-block: 8px;
+}
+.employement-history{
+    width: 95%;
+    margin-inline: auto;
+}
+
+.employement-history p{
+    font-size: 0.8rem;
+    color: gray;
+    margin-block: 8px;
+}
+
+
+.professional-summary textarea{
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    font-size: 1.1rem;
+}
+.projectDesc{
+    width: 100%;
+
+}
+
+
+
+
+.start-end-date{
+    display: flex;
+    width: 50%;
+    min-width: 230px;
+    gap: 6px;
+}
+.start-end-date input{
+    width: 50%;
+}
+.employeeBox{
+    width: 100%;
+    padding: 4px 6px;
+    box-shadow: 0 0 2px 1px black;
+    position: relative;
+}
+.jobDescription{
+    height: 80px;
+}
+.cross{
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    padding: 2px 4px;
+    border: 0.5px solid black;
+    color: red;
+    font-size: 1.25rem;
+    border-radius: 8px;
+}
+
+/* utility classes */
+.topicHeading{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.addNewSection{
+    color: rgb(224, 102, 15);
+}
+.addNewSection:hover{
+    cursor: pointer;
+}
+.secondDiv{
+    width: 48%;
+}
+.customised{
+    width: 100%;
+    height: 100px;
+    border: 2px solid black;
+    padding: 10px 8px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+.downloadDiv{
+    width: 100%;
+    
+}
+#downloadPdf{
+    padding: 4px;
+    font-weight: 600px;
+    border-radius: 4px;
+    display: block;
+    border: 0.5px solid gray;
+    margin-inline: auto;
+}
+
+/* PDF of personal Details */
+.resumePdfPage{
+    width: 100%;
+    padding: 8px 12px;
+}
+.personal-details-pdf{
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+    margin-inline: auto;
+    margin-bottom: 12px;
+}
+.contactPdf{
+    display: flex;
+    justify-content: space-between;
+}
+.summarypdf{
+    font-size: 0.9rem;
+    text-align:justify;
+    margin-block: 12px;
+}
+.employeementPdf{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.employeeManage{
+    display: flex;
+    justify-content: space-between;
+}
+.additionalInfo{
+    font-size: 0.8rem;
+    color: gray;
+    text-align: justify;
+}
+
+@media (max-width: 840px) {
+    .mainPage{
+        flex-direction: column;
+        gap:12px
+    }
+    .resumeInputPage{
+        width: 90%;
+        margin-inline: auto;
+    }
+    .secondDiv{
+        width: 90%;
+        margin-inline: auto;
+    }
+}
