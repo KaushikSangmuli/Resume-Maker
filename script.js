@@ -427,12 +427,22 @@ document.getElementById('downloadPdf').addEventListener('click', function () {
     clone.style.width = '200mm'; // Set the width to A2 size in mm
     clone.style.margin = 'auto';
 
+     // Determine the height of the cloned element
+     var height = clone.offsetHeight;
+     var heightInMm = height * 0.264583; // Convert px to mm
+
+     // Calculate the content height in mm
+     var contentHeightMm = clone.scrollHeight * 0.264583;
+
+     // Determine the format based on content height
+     var format = contentHeightMm > 297 ? 'a3' : 'a4';
+
     var opt = {
         margin: [4, 4, 4, 4], // [top, left, bottom, right] margins in mm
         filename: 'content.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        jsPDF: { unit: 'mm', format: format, orientation: 'portrait' }
     };
 
     document.body.appendChild(clone);
