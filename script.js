@@ -103,8 +103,7 @@ const jobDesignations = [
     "Safety Officer"
 ];
 
-
-const successful = document.querySelector(".submissionDone")
+const successful = document.querySelector(".submissionDone")  // to show details submitted succefully
 const completed = () => {
   successful.classList.remove("hidden")
   setTimeout(() => {
@@ -216,17 +215,18 @@ addCompany.addEventListener("click", () => {
     submitJob.addEventListener("click", () => {
         console.log(jobTitle.value)
         completed()
-        employement.innerHTML = ` <div class="employeeManage">
-        <h3 id="employerpdf"> ${companyName.value}</h3>
-        <span id="cityPdf"> ${companyCity.value}</span>
-    </div>
-    <div class="employeeManage">
-        <h5 id="designationPdf">${jobTitle.value}</h5>
-        <span id="datePdf"> (${startDate.value} to ${endDate.value} )</span>
-    </div>
-    <div id="descriptionPdf">
-        ${jobDiscript.value}
-    </div>
+        employement.innerHTML = `
+         <div class="employeeManage">
+              <h3 id="employerpdf"> ${companyName.value}</h3>
+             <span id="cityPdf"> ${companyCity.value}</span>
+         </div>
+        <div class="employeeManage">
+            <h5 id="designationPdf">${jobTitle.value}</h5>
+            <span id="datePdf"> (${startDate.value} to ${endDate.value} )</span>
+        </div>
+        <div id="descriptionPdf">
+            ${jobDiscript.value}
+        </div>
     `
 
         if (isappended == true) {
@@ -328,6 +328,7 @@ addEducation.addEventListener("click", () => {
 
 const addSocialLink = document.querySelector(".addSocialLink")
 const SocialLinks = document.querySelector(".socialLinks")
+const showSocial = document.querySelector(".socialPdf")
 addSocialLink.addEventListener("click", () => {
     count++
     const socialLink = document.createElement("div")
@@ -335,59 +336,109 @@ addSocialLink.addEventListener("click", () => {
     <div class="employeeBox personal-details">
         <div class="inputManager">
            <span> Label </span>
-           <input type"text"/>
+           <input class="socialName${count}" type"text"/>
         </div>
         <div class="inputManager">
             <span> Link </span>
-            <input type"text"/>
+            <input class="socialLink${count}" type"text"/>
         </div>
+        <button class="submit${count} submit"> submit </button>
     <button class="cross${count} cross "> X </button>
 
     </div>
     `
     SocialLinks.appendChild(socialLink)
+    const  socialLable = document.querySelector(`.socialName${count}`)
+    const  linkForLable= document.querySelector(`.socialLink${count}`)
+    const submitSocial = document.querySelector(`.submit${count}`)
+    const socialAdded =document.createElement("div")
+    submitSocial.addEventListener("click",()=>{
+        console.log("hello")
+        socialAdded.innerHTML=`
+        <div > 
+        <a target="_blank" href="${linkForLable.value}"> ${socialLable.value}</a>
+        </div>
+        ` 
+        // console.log(socialLable,socialLable.value, "lable")
+        completed()
+        showSocial.appendChild(socialAdded)
+    })
+
+
     const cross = document.querySelector(`.cross${count}`)
     cross.addEventListener("click", () => {
         socialLink.style.display = "none"
         console.log("hello")
+        removing()
     })
 })
 
 
 const addProject = document.querySelector(".addProject")
 const projects = document.querySelector(".projects")
+const showProject = document.querySelector(".projectsPdf")
 addProject.addEventListener("click", () => {
     count++
     const project = document.createElement("div")
     project.innerHTML =
         `<div class="personal-details employeeBox">
-    <div class="inputManager">
-        <span> Project Title</span>
-        <input type="text">
-    </div>
+             <div class="inputManager">
+                <span> Project Title</span>
+                <input type="text" class="projectTitle${count}">
+            </div>
 
-    <div class="inputManager">
-        <span> City</span>
-        <input type="text">
-    </div>
+            <div class="inputManager">
+                <span> Project Link </span>
+                <span class="additionalInfo" > This link is attached to the title directly </span>
+                <input type="text" class="projectLink${count}" />
+            </div>
     
-    <div  class="inputManager" >
-        <span> Tools used in Projects</span>
-        <input type="text">
-    </div>
+            <div  class="inputManager" >
+                <span> Tools used in Projects</span>
+                <input type="text" class="projectTools${count}">
+            </div>
     
-    <div class="inputManager projectDesc" > 
-        <span> Project Description</span>
-        <textarea class="jobDescription"></textarea>
-    </div>
-    <button class="cross${count} cross "> X </button>
-</div>
+            <div class="inputManager projectDesc" > 
+                <span> Project Description</span>
+                <textarea class="jobDescription projectDescription${count}" ></textarea>
+            </div>
+            <button class="submit${count} submit"> Submit </button> 
+            <button class="cross${count} cross "> X </button>
+        </div>
     `
     projects.appendChild(project)
+    const submitProjects = document.querySelector(`.submit${count}`)
+    const projectTitle = document.querySelector(`.projectTitle${count}`)
+    const projectLink = document.querySelector(`.projectLink${count}`)
+    const projectTools = document.querySelector(`.projectTools${count}`)
+    const projectDescription = document.querySelector(`.projectDescription${count}`)
+    const projectAdded = document.createElement("div")
+    submitProjects.addEventListener("click", ()=>{
+        projectAdded.innerHTML =`
+         <div>
+                <h3 > <a class= "projectTitle" target="_blank" href=${projectLink.value}>  ${projectTitle.value}</a> </h3>
+         </div>
+         <div>
+             <p>  ${projectTools.value} </p>
+         </div>
+         <div>
+            <p> ${projectDescription.value}
+         </div>
+        `
+        completed()
+
+        showProject.appendChild(projectAdded)
+    })
+
+
+
+
+
     const cross = document.querySelector(`.cross${count}`)
     cross.addEventListener("click", () => {
         project.style.display = "none"
         console.log("hello")
+        removing()
     })
 })
 
@@ -415,6 +466,10 @@ designation.addEventListener("input", (e) => {
     }
 })
 
+const previewPdf = document.querySelector("#previewPdf")
+previewPdf.addEventListener("click", ()=>{
+    console.log("hello")
+})
 
 
 
@@ -428,6 +483,8 @@ document.getElementById('downloadPdf').addEventListener('click', function () {
     clone.style.margin = 'auto';
     document.body.appendChild(clone);
 
+   
+    
 
      // Determine the height of the cloned element
      var height = clone.offsetHeight;
@@ -438,7 +495,7 @@ document.getElementById('downloadPdf').addEventListener('click', function () {
      // Calculate the content height in mm
      var contentHeightMm = clone.scrollHeight * 0.264583;
 
-     // Determine the format based on content height
+     // Determine the- format based on content height
      if (contentHeightMm > 297 ){
         formatted = "a3"
         clone.style.width= "280mm"
@@ -446,7 +503,7 @@ document.getElementById('downloadPdf').addEventListener('click', function () {
         formatted= "a4"
      }
      
-     debugger
+     
      console.log(contentHeightMm)
 
     var opt = {

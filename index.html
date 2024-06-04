@@ -22,12 +22,11 @@
     <main>
         <div class="alertMsg"></div>
         <div class="mainPage">
-
             <div class="resumeInputPage">
                 <span class="topicHeading"> Personal Details</span>
                 <div class="personal-details">
                     <div class="designation inputManager">
-                        <label for="designationInput"> Enter Your Designation </label>
+                        <label for="designationInput" class="spanHeading"> Enter Your Designation </label>
                         <input type="text" id="designationInput" required>
                         <div id="desResult"></div>
                     </div>
@@ -96,33 +95,50 @@
                         <input type="color" id="fontColorSet">
                     </div>
                     <div class="downloadDiv">
-                        <button id="downloadPdf"> download</button>
+                        <div class="maintain">
+                            <span> Download PDF here</span>
+                            <button id="downloadPdf"> download</button>
+                        </div>
+                        <div class="maintain">
+                            <span> preview PDF here</span>
+                            <button id="previewPdf"><a id="preview" href="resumepdf.html">Preview </a></button>
+                        </div>
+
                     </div>
                 </div>
                 <div class="resumePdfPage">
-                    <div class="personal-details-pdf">
+                    <div class="personal-details-pdf givingMargin">
                         <div class="namePdf">
-                            <h2 id="pdfName"> Name </h2>
-                            <span id="pdfDesignation"> Designation</span>
+                            <h2 id="pdfName">  </h2>
+                            <span id="pdfDesignation"> </span>
                         </div>
                         <div class="contactPdf">
-                            <span id="pdfPhoneNumber"> Mobile Number</span>
-                            <span id="pdfEmail"> Email</span>
+                            <span id="pdfPhoneNumber"> </span>
+                            <span id="pdfEmail"> </span>
                         </div>
                        
                     </div>
                     <hr>
-                    <div class="summarypdf">
+                    <div class="summarypdf givingMargin">
                         
                     </div>
                     <hr>
-                    <div class="employeementPdf">   
+                    <div class="employeementPdf givingMargin">   
                         
                     </div>
                     <hr>
-                    <div class="eduactionPdf">
+                    <div class="eduactionPdf givingMargin">
                         
                     </div>
+                    <hr>
+                    <div class="socialPdf givingMargin">
+
+                    </div>
+                    <hr>
+                    <div class="projectsPdf givingMargin">
+
+                    </div>
+
                 </div>
             </div>
            
