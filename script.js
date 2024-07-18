@@ -227,6 +227,7 @@ addCompany.addEventListener("click", () => {
         <div id="descriptionPdf">
             ${jobDiscript.value}
         </div>
+        
     `
 
         if (isappended == true) {
@@ -416,7 +417,7 @@ addProject.addEventListener("click", () => {
     submitProjects.addEventListener("click", ()=>{
         projectAdded.innerHTML =`
          <div>
-                <h3 > <a class= "projectTitle" target="_blank" href=${projectLink.value}>  ${projectTitle.value}</a> </h3>
+                <h3 class="clickable" > <a class= "projectTitle" target="_blank" href=${projectLink.value}>  ${projectTitle.value}</a> </h3>
          </div>
          <div>
              <p>  ${projectTools.value} </p>

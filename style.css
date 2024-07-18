@@ -40,11 +40,19 @@
     font-weight: 600;
 }
 
-.companyList{
+.companyList , .socialLinks, .projects{
     position: relative;
+    margin-top: 16px;
+    
+
+}
+.projects{
+    margin-bottom: 40px;
 }
 .educationList{
     position: relative;
+    margin-top: 16px;
+
 
 }
 
@@ -59,6 +67,7 @@
     border: 2px solid  black;
     width: 48%;
     padding-inline: 12px;
+    background-color: rgb(14 215 133 / 9%);
 
 }
 
@@ -97,8 +106,8 @@
 .inputManager input{
     height: 32px;
     border-radius: 10px;
-    background-color: rgba(216, 213, 208, 0.58);
-    border: 1px solid rgba(216, 213, 208, 0.795);
+    background-color: rgb(157 224 233 / 43%);
+    border: 1px solid rgb(24 24 23 / 56%);
 }
 
 .submit-personal{
@@ -154,8 +163,8 @@
     padding: 20px;
     font-size: 1.1rem;
     border-radius: 10px;
-    background-color: rgba(216, 213, 208, 0.58);
-    border: 1px solid rgba(216, 213, 208, 0.795);
+    background-color: rgb(157 224 233 / 43%);
+    border: 1px solid rgb(24 24 23 / 56%);
     max-width: 100%;
 }
 textarea{
@@ -164,8 +173,8 @@ textarea{
     padding: 20px;
     font-size: 1.1rem;
     border-radius: 10px;
-    background-color: rgba(216, 213, 208, 0.58);
-    border: 1px solid rgba(216, 213, 208, 0.795);
+    background-color: rgb(157 224 233 / 43%);
+    border: 1px solid rgb(24 24 23 / 56%);
     max-width: 100%;
 }
 .projectDesc{
@@ -331,6 +340,9 @@ textarea{
     text-decoration: none;
 }
 
+.clickable {
+    color: rgb(32, 32, 73);
+}
 @media (max-width: 840px) {
     .mainPage{
         flex-direction: column;
